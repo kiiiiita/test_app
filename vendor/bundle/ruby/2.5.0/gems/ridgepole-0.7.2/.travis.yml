@@ -1,0 +1,44 @@
+dist: trusty
+sudo: required
+group: edge
+language: ruby
+cache:
+  - bundler
+  - apt
+rvm:
+  - 2.2.9
+  - 2.3.6
+  - 2.4.3
+  - 2.5.0
+before_install:
+  - gem update --system
+  - gem install bundler
+before_script:
+  - sudo service mysql stop
+  - sudo service postgresql stop
+  - docker-compose up -d
+  - function mysql_ping { mysqladmin -u root -h 127.0.0.1 -P 13316 -ppassword ping; }
+  - function mysql57_ping { mysqladmin -u root -h 127.0.0.1 -P 13317  -ppassword ping; }
+  - function pg_ping { PGPASSWORD=password pg_isready -U postgres -h 127.0.0.1 -p 15442; }
+  - for i in {1..60}; do mysql_ping && break; sleep 1; done
+  - for i in {1..60}; do mysql57_ping && break; sleep 1; done
+  - for i in {1..60}; do pg_ping && break; sleep 1; done
+script:
+  - bundle exec rake
+gemfile:
+  - gemfiles/activerecord_5.0.gemfile
+  - gemfiles/activerecord_5.1.gemfile
+  - gemfiles/activerecord_5.2.gemfile
+env:
+  matrix:
+    - MYSQL56=1
+    - MYSQL57=1
+    - POSTGRESQL=1
+services:
+  - docker
+addons:
+  apt:
+    packages:
+      - mysql-client-core-5.6
+      - mysql-client-5.6
+      - postgresql-client-9.4

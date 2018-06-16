@@ -1,0 +1,10 @@
+// Graphviz graph that shows the basic flow of the analysis process of
+// ruby-lint.
+
+digraph flow {
+    "Source" [shape=box];
+    "Report" [shape=box];
+
+    "Source" -> "Parser" -> "Virtual Machine" -> "Analysis";
+    "Analysis" -> "Report" -> "Presenter";
+}

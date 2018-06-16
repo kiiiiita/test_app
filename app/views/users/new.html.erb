@@ -1,0 +1,15 @@
+<h1>Users</h1>
+<%= @user.errors.messages.values %>
+<%= form_for(@user) do |f| %>
+    <%= f.label :account %>
+    <%= f.text_field :account %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+    <%= f.submit %>    
+<% end %>
+
+<%= link_to 'Back', new_session_path %>
