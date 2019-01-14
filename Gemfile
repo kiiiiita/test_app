@@ -40,6 +40,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'ridgepole'
 gem 'active_hash'
 gem "sorcery"
+gem 'webpacker', github: 'rails/webpacker'
+gem 'active_model_serializers'
+gem 'twitter'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

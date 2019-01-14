@@ -1,0 +1,7 @@
+ja:
+  view:
+    restaurant:
+      name: 店名
+      url: url
+      visit_date: 訪れた日
+      tag: tag

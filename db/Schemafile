@@ -1,1 +1,6 @@
-require 'users.schema'
+require 'tables/users.schema'
+require 'tables/blogs.schema'
+require 'tables/measurements.schema'
+require 'tables/go_items.schema'
+require 'tables/restaurants.schema'
+require 'tables/tags.schema'

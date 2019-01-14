@@ -1,0 +1,6 @@
+create_table "blogs", force: :cascade do |t|
+  t.references "user", null: false
+  t.string "title", null: false
+  t.text "contents", null: false
+  t.timestamps null: false
+end

@@ -1,0 +1,26 @@
+<%= link_to '新規登録', new_restaurant_path %>
+
+<% if @restaurants.present? %>
+  <table>
+    <tr>
+      <th>店名</th>
+      <th>タグ</th>
+    </tr>
+    <% @restaurants.each do |restaurant| %>
+    <tr>
+      <td>
+        <% if restaurant.url.blank? %>
+          <p><%= restaurant.name %></p>
+        <% else %>
+          <iframe type="text/html" src=<%= restaurant.url %> title=<%= restaurant.name %>></iframe>
+        <% end %>
+      </td>
+      <td>
+        <%= restaurant.tags.map {|tag| tag.name }.join(",") %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>まだお店の登録はありません</p>
+<% end %>

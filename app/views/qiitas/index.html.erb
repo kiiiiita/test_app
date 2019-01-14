@@ -1,0 +1,30 @@
+<%= form_tag qiitas_path, :method => 'get' do %>
+  <%= label_tag :tag %>
+  <%= text_field_tag :tag %>
+  <%= submit_tag 'search' %>
+<% end %>
+
+<% if @contents.present? %>
+  <table>
+    <tr>
+      <th>タイトル</th>
+      <th>いいね数</th>
+      <th>タグ</th>
+    </tr>
+    <% @contents.each do |content| %>
+    <tr>
+      <td>
+        <a href=<%= content["url"] %> target="_blank"><%= content["title"] %></a>
+      </td>
+      <td>
+        <%= content["likes_count"] %>
+      </td>
+      <td>
+        <%= content["tags"].map {|tag| tag["name"] }.join(",") %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p><%= @errors %></p>
+<% end %>

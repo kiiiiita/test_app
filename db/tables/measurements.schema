@@ -1,0 +1,6 @@
+create_table "measurements", force: :cascade do |t|
+  t.references "user", null: false
+  t.decimal "weight", precision: 3, scale: 1
+  t.date "day"
+  t.timestamps null: false
+end

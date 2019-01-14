@@ -1,0 +1,7 @@
+create_table "restaurants", force: :cascade do |t|
+  t.references "user", null: false
+  t.string "name", null: false
+  t.string "url"
+  t.date "visit_date", null: false
+  t.timestamps null: false
+end

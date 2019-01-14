@@ -1,3 +1,29 @@
 <%= @user.account %>
-
-<%= link_to 'Log out', logout_path, method: :delete %>
+<%= @user.role.name %>
+<% if @blogs.present? %>
+  <table>
+  　<tr>
+  　　<th>作成日</th>
+  　　<th>タイトル</th>
+  　</tr>
+    <% @blogs.each do |blog| %>
+    　<tr>
+    　　<td><%= blog.created_at %></td>
+    　　<td><%= blog.title %></td>
+    　</tr>
+    <% end %>
+  </table>
+  <div>
+    <%= link_to '新しく書く', new_blog_path %>
+  </div>
+<% else %>
+  <div>
+    <%= link_to 'ブログを始める', new_blog_path %>
+  </div>
+<% end %>
+<div>
+  <%= link_to 'Qiitaを見る', qiitas_path %>
+</div>
+<div>
+  <%= link_to '行ったお店を登録する', restaurants_path %>
+</div>

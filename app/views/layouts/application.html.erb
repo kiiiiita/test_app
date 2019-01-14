@@ -9,7 +9,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
   <body>
-    <%= yield %>
+    <% if current_user.present? %>
+      <%= render :partial => "header" %>
+      <%= yield %>
+      <%= render :partial => "footer" %>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

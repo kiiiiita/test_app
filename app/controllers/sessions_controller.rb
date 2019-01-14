@@ -1,9 +1,5 @@
 class SessionsController < ApplicationController
   skip_before_action :require_sign_in!
-
-  def new
-  end
-
   def create
     user = login(params[:account], params[:password], params[:remember_me])
     if user

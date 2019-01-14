@@ -24,7 +24,7 @@ require 'rspec/rails'
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
-ActiveRecord::Migration.maintain_test_schema!
+# ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
@@ -57,13 +57,13 @@ RSpec.configure do |config|
 end
 
 require 'rubygems'
-require 'spork'
+# require 'spork'
 
-Spork.prefork do
-end
+# Spork.prefork do
+# end
 
-Spork.each_run do
-end
+# Spork.each_run do
+# end
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
@@ -82,4 +82,5 @@ RSpec.configure do |config|
 
   FactoryBot.reload
   end
+  config.include FactoryBot::Syntax::Methods
 end

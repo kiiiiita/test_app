@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   belongs_to_active_hash :role
   authenticates_with_sorcery!
 
+  has_many :blogs
+  has_many :measurements
+  has_many :restaurants
+
   validates :account,
     presence: true,
     uniqueness: true
@@ -17,4 +21,4 @@ class User < ActiveRecord::Base
   validates :password_confirmation,
     presence: true,
     if: -> { new_record? || changes['password'] }
-  end
+end
