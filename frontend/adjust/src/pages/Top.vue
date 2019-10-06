@@ -2,6 +2,7 @@
   <div class="top">
     <p>{{ msg }}</p>
     <router-link :to="{ name: 'Adjust'}">adjust</router-link>
+    <router-link :to="{ name: 'Qiita'}">qiita</router-link>
   </div>
 </template>
 

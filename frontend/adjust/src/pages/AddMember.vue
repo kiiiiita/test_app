@@ -5,7 +5,7 @@
     <input type="text" v-model="comment">
     ○<input type="radio" value="○" v-model="attend">
     ×<input type="radio" value="×" v-model="attend">
-    <default-button :label="'作成'" @click="addMember" />
+    <action-button :text="'作成'" @click="addMember" />
     <table>
       <thead>
         <tr>
@@ -27,12 +27,12 @@
 
 <script>
 import firebase from 'firebase'
-import DefaultButton from '../components/common/DefaultButton'
+import ActionButton from '../components/common/ActionButton'
 
 export default {
   name: 'AddMember',
   components: {
-    DefaultButton
+    ActionButton
   },
   computed: {
     scheduleKey () {

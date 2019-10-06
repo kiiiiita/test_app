@@ -1,13 +1,13 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import Vuex from 'vuex'
 import App from './App'
 import firebase from 'firebase'
 import router from './router'
 
 Vue.config.productionTip = false
-
-console.log(process.env);
+Vue.use(Vuex)
 
 var config = {
         apiKey: process.env.FIRE_BASE.API_KEY,

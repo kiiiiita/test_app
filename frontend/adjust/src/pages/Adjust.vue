@@ -30,7 +30,7 @@ import firebase from 'firebase'
 import newSchedule from '../components/adjust/NewSchedule'
 
 export default {
-  name: 'Top',
+  name: 'Adjust',
   components: {
     newSchedule
   },

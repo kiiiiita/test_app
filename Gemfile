@@ -43,7 +43,8 @@ gem "sorcery"
 gem 'webpacker', github: 'rails/webpacker'
 gem 'active_model_serializers'
 gem 'twitter'
-
+gem 'prawn'
+gem 'prawn-table'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
